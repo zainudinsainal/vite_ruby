@@ -13,7 +13,7 @@ class ViteRuby::Builder
   # and triggers a Vite build if any files have changed.
   def build(*args)
     last_build = last_build_metadata
-    if args.delete('--force') || last_build.stale?
+    if force_build? || args.delete('--force') || last_build.stale?
       build_with_vite(*args).tap { |success| record_build_metadata(success, last_build) }
     elsif last_build.success
       logger.debug "Skipping vite build. Watched files have not changed since the last build at #{ last_build.timestamp }"
@@ -34,6 +34,10 @@ private
   extend Forwardable
 
   def_delegators :@vite_ruby, :config, :logger, :run
+
+  def force_build?
+    true
+  end
 
   # Internal: Reads metadata recorded on the last build, if it exists.
   def last_build_attrs
