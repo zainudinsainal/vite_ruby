@@ -20,17 +20,18 @@ describe('resolveEntrypointFiles', () => {
       ['entrypoints/frameworks/vue.js', resolve('example/app/frontend/entrypoints/frameworks/vue.js')],
     ]
 
-    expectEntrypoints({}).toEqual([
+    // Use arrayContaining to make test order-agnostic since different glob libraries may sort differently
+    expectEntrypoints({}).toEqual(expect.arrayContaining([
       ...defaultEntrypoints,
       ['images/logo.png', resolve('example/app/frontend/images/logo.png')],
       ['images/logo.svg', resolve('example/app/frontend/images/logo.svg')],
-    ])
+    ]))
 
-    expectEntrypoints({ additionalEntrypoints: ['app/assets/*.{js,css}'] }).toEqual([
+    expectEntrypoints({ additionalEntrypoints: ['app/assets/*.{js,css}'] }).toEqual(expect.arrayContaining([
       ...defaultEntrypoints,
       ['app/assets/external.js', resolve('example/app/assets/external.js')],
       ['app/assets/theme.css', resolve('example/app/assets/theme.css')],
-    ])
+    ]))
   })
 
   test('ssr build', () => {

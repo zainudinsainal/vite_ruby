@@ -1,3 +1,4 @@
+
 ## [5.1.1](https://github.com/ElMassimo/vite_ruby/compare/vite-plugin-ruby@5.1.0...vite-plugin-ruby@5.1.1) (2024-11-05)
 
 
