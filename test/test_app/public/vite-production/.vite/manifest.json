@@ -1,138 +1,115 @@
 {
-  "../../vite/legacy-polyfills-legacy": {
-    "file": "assets/polyfills-legacy-BsM-Okz1.js",
-    "name": "polyfills",
-    "src": "../../vite/legacy-polyfills-legacy",
-    "isEntry": true
-  },
-  "../assets/external-legacy.js": {
-    "file": "assets/external-legacy-CT56CLk_.js",
-    "name": "app/assets/external.js",
-    "src": "../assets/external-legacy.js",
-    "isEntry": true
-  },
   "../assets/external.js": {
-    "file": "assets/external-CQ-SkJA_.js",
+    "file": "assets/external-CpZztwVM.js",
     "name": "app/assets/external.js",
     "src": "../assets/external.js",
     "isEntry": true
   },
-  "../assets/theme-legacy.css": {
-    "file": "assets/theme-legacy-B4oZEuL2.js",
-    "name": "app/assets/theme.css",
-    "src": "../assets/theme-legacy.css",
-    "isEntry": true
-  },
   "../assets/theme.css": {
-    "file": "assets/theme-CK6FhHUh.css",
+    "file": "assets/theme-DTwNGEOz.js",
+    "name": "app/assets/theme.css",
     "src": "../assets/theme.css",
-    "isEntry": true
+    "isEntry": true,
+    "css": [
+      "assets/unknown-C09nxUps.css"
+    ]
   },
-  "entrypoints/app-legacy.css": {
-    "file": "assets/app-legacy-BZSIxTfI.js",
-    "name": "entrypoints/app.css",
-    "src": "entrypoints/app-legacy.css",
-    "isEntry": true
+  "_main-CVkScvzJ.js": {
+    "file": "assets/main-CVkScvzJ.js",
+    "name": "main"
+  },
+  "_unknown-B0iO_-X8.css": {
+    "file": "assets/unknown-B0iO_-X8.css",
+    "src": "_unknown-B0iO_-X8.css"
+  },
+  "_unknown-C09nxUps.css": {
+    "file": "assets/unknown-C09nxUps.css",
+    "src": "_unknown-C09nxUps.css"
+  },
+  "_unknown-CPmPqqKk.png": {
+    "file": "assets/unknown-CPmPqqKk.png",
+    "src": "_unknown-CPmPqqKk.png"
+  },
+  "_unknown-D5kz_As0.css": {
+    "file": "assets/unknown-D5kz_As0.css",
+    "src": "_unknown-D5kz_As0.css"
+  },
+  "_unknown-Nuo4H8F_.svg": {
+    "file": "assets/unknown-Nuo4H8F_.svg",
+    "src": "_unknown-Nuo4H8F_.svg"
+  },
+  "_unknown-OK6MABcH.css": {
+    "file": "assets/unknown-OK6MABcH.css",
+    "src": "_unknown-OK6MABcH.css"
+  },
+  "_vue-DnA89QXb.js": {
+    "file": "assets/vue-DnA89QXb.js",
+    "name": "vue",
+    "css": [
+      "assets/unknown-B0iO_-X8.css"
+    ]
   },
   "entrypoints/app.css": {
-    "file": "assets/app-BhUNvwbY.css",
+    "file": "assets/app-Ctd5ysQC.js",
+    "name": "entrypoints/app.css",
     "src": "entrypoints/app.css",
-    "isEntry": true
-  },
-  "entrypoints/frameworks/vue-legacy.js": {
-    "file": "assets/vue-legacy-BMRVL_7M.js",
-    "name": "entrypoints/frameworks/vue.js",
-    "src": "entrypoints/frameworks/vue-legacy.js",
-    "isEntry": true
+    "isEntry": true,
+    "css": [
+      "assets/unknown-OK6MABcH.css"
+    ]
   },
   "entrypoints/frameworks/vue.js": {
-    "file": "assets/vue-Cg2fS9eh.js",
+    "file": "assets/vue-DnLtmdJu.js",
     "name": "entrypoints/frameworks/vue.js",
     "src": "entrypoints/frameworks/vue.js",
     "isEntry": true,
-    "css": [
-      "assets/vue-BH1qkaTX.css"
-    ]
-  },
-  "entrypoints/main-legacy.ts": {
-    "file": "assets/main-legacy-DLPUG4oZ.js",
-    "name": "entrypoints/main.ts",
-    "src": "entrypoints/main-legacy.ts",
-    "isEntry": true,
     "imports": [
-      "entrypoints/app-legacy.css",
-      "entrypoints/frameworks/vue-legacy.js",
-      "../assets/theme-legacy.css"
+      "_vue-DnA89QXb.js"
     ]
   },
   "entrypoints/main.ts": {
-    "file": "assets/main-CuVZXsxU.js",
+    "file": "assets/main-CFNrsKJD.js",
     "name": "entrypoints/main.ts",
     "src": "entrypoints/main.ts",
     "isEntry": true,
     "imports": [
-      "entrypoints/frameworks/vue.js"
+      "_vue-DnA89QXb.js",
+      "_main-CVkScvzJ.js"
     ],
     "css": [
-      "assets/app-BhUNvwbY.css",
-      "assets/theme-CK6FhHUh.css"
+      "assets/unknown-C09nxUps.css",
+      "assets/unknown-OK6MABcH.css"
     ]
-  },
-  "entrypoints/sassy-legacy.scss": {
-    "file": "assets/sassy-legacy-DPacfGOX.js",
-    "name": "entrypoints/sassy.scss",
-    "src": "entrypoints/sassy-legacy.scss",
-    "isEntry": true
   },
   "entrypoints/sassy.scss": {
-    "file": "assets/sassy-D5kz_As0.css",
+    "file": "assets/sassy-uF40cQPm.js",
+    "name": "entrypoints/sassy.scss",
     "src": "entrypoints/sassy.scss",
-    "isEntry": true
-  },
-  "images/logo.png": {
-    "file": "assets/logo-Bh_XL1Xl.png",
-    "src": "images/logo.png"
-  },
-  "index-legacy.html": {
-    "file": "assets/index-legacy-Cgnsouis.js",
-    "name": "index.html",
-    "src": "index-legacy.html",
     "isEntry": true,
-    "imports": [
-      "entrypoints/sassy-legacy.scss",
-      "entrypoints/app-legacy.css",
-      "entrypoints/main-legacy.ts",
-      "entrypoints/frameworks/vue-legacy.js",
-      "../assets/theme-legacy.css"
-    ],
-    "assets": [
-      "assets/logo-Bh_XL1Xl.png"
+    "css": [
+      "assets/unknown-D5kz_As0.css"
     ]
   },
+  "images/logo.png": {
+    "file": "assets/unknown-Bh_XL1Xl.png",
+    "src": "images/logo.png"
+  },
   "index.html": {
-    "file": "assets/index-BSgK7T1J.js",
+    "file": "assets/index-C9eyiyyD.js",
     "name": "index.html",
     "src": "index.html",
     "isEntry": true,
     "imports": [
-      "entrypoints/main.ts",
-      "entrypoints/frameworks/vue.js"
+      "_vue-DnA89QXb.js",
+      "_main-CVkScvzJ.js"
     ],
     "css": [
-      "assets/sassy-D5kz_As0.css",
-      "assets/app-BhUNvwbY.css",
-      "assets/theme-CK6FhHUh.css"
+      "assets/unknown-C09nxUps.css",
+      "assets/unknown-OK6MABcH.css",
+      "assets/unknown-D5kz_As0.css"
     ],
     "assets": [
-      "assets/logo-Bh_XL1Xl.png"
+      "assets/unknown-Bh_XL1Xl.png"
     ]
-  },
-  "logo.png": {
-    "file": "assets/logo-CPmPqqKk.png",
-    "src": "logo.png"
-  },
-  "logo.svg": {
-    "file": "assets/logo-Nuo4H8F_.svg",
-    "src": "logo.svg"
   }
 }

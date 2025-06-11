@@ -100,8 +100,19 @@ function configureServer (server: ViteDevServer) {
 
 function outputOptions (assetsDir: string, ssrBuild: boolean) {
   // Internal: Avoid nesting entrypoints unnecessarily.
-  const outputFileName = (ext: string) => ({ name }: { name: string }) => {
-    const shortName = basename(name).split('.')[0]
+  const outputFileName = (ext: string) => (assetInfo: { name?: string; type?: string; source?: any }) => {
+    // Handle undefined asset names gracefully
+    if (!assetInfo.name) {
+      console.warn('Asset name is undefined, using fallback name. Asset info:', {
+        name: assetInfo.name,
+        type: assetInfo.type,
+        hasSource: !!assetInfo.source,
+        sourceType: typeof assetInfo.source,
+        sourceLength: assetInfo.source?.length || 'N/A',
+      })
+      return posix.join(assetsDir, `unknown-[hash].${ext}`)
+    }
+    const shortName = basename(assetInfo.name).split('.')[0]
     return posix.join(assetsDir, `${shortName}-[hash].${ext}`)
   }
 
