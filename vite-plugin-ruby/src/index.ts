@@ -4,7 +4,7 @@ import type { ConfigEnv, PluginOption, UserConfig, ViteDevServer } from 'vite'
 import createDebugger from 'debug'
 
 import { cleanConfig, configOptionFromEnv } from './utils'
-import { filterEntrypointsForRollup, loadConfiguration, resolveGlobs } from './config'
+import { filterEntrypointsForRolldown, loadConfiguration, resolveGlobs } from './config'
 import { assetsManifestPlugin } from './manifest'
 
 export * from './types'
@@ -55,7 +55,7 @@ function config (userConfig: UserConfig, env: ConfigEnv): UserConfig {
       ...rollupOptions,
       input: {
         ...rollupInput,
-        ...Object.fromEntries(filterEntrypointsForRollup(entrypoints)),
+        ...Object.fromEntries(filterEntrypointsForRolldown(entrypoints)),
       },
       output: {
         ...outputOptions(assetsDir, ssrBuild),

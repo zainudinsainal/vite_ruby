@@ -1,3 +1,16 @@
+## Unreleased Version
+
+### Features
+
+* Node.js v18 is no longer supported in Vite 7.0.0. Minimum required version is now Node.js v20+.
+
+* Migrate from rollup to rolldown using rolldown-vite technical preview
+
+* Migrate build tooling from `tsup` to `tsdown` for improved performance powered by Rolldown and Oxc (Rust-based tools). Updated TypeScript to v5.8.3 for better compatibility
+
+* Migrate from `fast-glob` to `tinyglobby` for improved performance. Using the same library as Vite will allow the dependency to be deduped
+
+
 ## [5.1.1](https://github.com/ElMassimo/vite_ruby/compare/vite-plugin-ruby@5.1.0...vite-plugin-ruby@5.1.1) (2024-11-05)
 
 

@@ -1,103 +1,138 @@
 {
-  "index-legacy.html": {
-    "file": "assets/index.c5583f4b-legacy.js",
-    "src": "index-legacy.html",
-    "isEntry": true,
-    "imports": [
-      "_log.d31acc25-legacy.js",
-      "entrypoints/frameworks/vue-legacy.js",
-      "_vendor.6a486966-legacy.js"
-    ]
-  },
-  "entrypoints/frameworks/vue-legacy.js": {
-    "file": "assets/vue.5813ee33-legacy.js",
-    "src": "entrypoints/frameworks/vue-legacy.js",
-    "isEntry": true,
-    "imports": [
-      "_vendor.6a486966-legacy.js"
-    ],
-    "assets": [
-      "assets/logo.322aae0c.svg"
-    ]
-  },
-  "entrypoints/main-legacy.ts": {
-    "file": "assets/main.20bbd3a5-legacy.js",
-    "src": "entrypoints/main-legacy.ts",
-    "isEntry": true,
-    "imports": [
-      "_log.d31acc25-legacy.js",
-      "entrypoints/frameworks/vue-legacy.js",
-      "_vendor.6a486966-legacy.js"
-    ]
+  "../../vite/legacy-polyfills-legacy": {
+    "file": "assets/polyfills-legacy-BsM-Okz1.js",
+    "name": "polyfills",
+    "src": "../../vite/legacy-polyfills-legacy",
+    "isEntry": true
   },
   "../assets/external-legacy.js": {
-    "file": "assets/external.a35ee0db-legacy.js",
+    "file": "assets/external-legacy-CT56CLk_.js",
+    "name": "app/assets/external.js",
     "src": "../assets/external-legacy.js",
     "isEntry": true
   },
-  "_vendor.6a486966-legacy.js": {
-    "file": "assets/vendor.6a486966-legacy.js"
-  },
-  "_log.d31acc25-legacy.js": {
-    "file": "assets/log.d31acc25-legacy.js"
-  },
-  "../../\u0000vite/legacy-polyfills": {
-    "file": "assets/polyfills-legacy.07477394.js",
-    "src": "../../vite/legacy-polyfills",
-    "isEntry": true
-  },
-  "index.html": {
-    "file": "assets/index.1a0febdc.js",
-    "src": "index.html",
-    "isEntry": true,
-    "imports": [
-      "_log.818edfb8.js",
-      "entrypoints/frameworks/vue.js",
-      "_vendor.0f7c0ec3.js"
-    ],
-    "css": [
-      "assets/sassy.3560956f.css",
-      "assets/app.517bf154.css",
-      "assets/theme.e6d9734b.css"
-    ]
-  },
-  "entrypoints/frameworks/vue.js": {
-    "file": "assets/vue.3002ada6.js",
-    "src": "entrypoints/frameworks/vue.js",
-    "isEntry": true,
-    "imports": [
-      "_vendor.0f7c0ec3.js"
-    ],
-    "css": [
-      "assets/vue.ec0a97cc.css"
-    ],
-    "assets": [
-      "assets/logo.322aae0c.svg"
-    ]
-  },
-  "entrypoints/main.ts": {
-    "file": "assets/main.9dcad042.js",
-    "src": "entrypoints/main.ts",
-    "isEntry": true,
-    "imports": [
-      "_log.818edfb8.js",
-      "entrypoints/frameworks/vue.js",
-      "_vendor.0f7c0ec3.js"
-    ],
-    "css": [
-      "assets/app.517bf154.css",
-      "assets/theme.e6d9734b.css"
-    ]
-  },
   "../assets/external.js": {
-    "file": "assets/external.d1ae13f1.js",
+    "file": "assets/external-CQ-SkJA_.js",
+    "name": "app/assets/external.js",
     "src": "../assets/external.js",
     "isEntry": true
   },
-  "_vendor.0f7c0ec3.js": {
-    "file": "assets/vendor.0f7c0ec3.js"
+  "../assets/theme-legacy.css": {
+    "file": "assets/theme-legacy-B4oZEuL2.js",
+    "name": "app/assets/theme.css",
+    "src": "../assets/theme-legacy.css",
+    "isEntry": true
   },
-  "_log.818edfb8.js": {
-    "file": "assets/log.818edfb8.js"
+  "../assets/theme.css": {
+    "file": "assets/theme-CK6FhHUh.css",
+    "src": "../assets/theme.css",
+    "isEntry": true
+  },
+  "entrypoints/app-legacy.css": {
+    "file": "assets/app-legacy-BZSIxTfI.js",
+    "name": "entrypoints/app.css",
+    "src": "entrypoints/app-legacy.css",
+    "isEntry": true
+  },
+  "entrypoints/app.css": {
+    "file": "assets/app-BhUNvwbY.css",
+    "src": "entrypoints/app.css",
+    "isEntry": true
+  },
+  "entrypoints/frameworks/vue-legacy.js": {
+    "file": "assets/vue-legacy-BMRVL_7M.js",
+    "name": "entrypoints/frameworks/vue.js",
+    "src": "entrypoints/frameworks/vue-legacy.js",
+    "isEntry": true
+  },
+  "entrypoints/frameworks/vue.js": {
+    "file": "assets/vue-Cg2fS9eh.js",
+    "name": "entrypoints/frameworks/vue.js",
+    "src": "entrypoints/frameworks/vue.js",
+    "isEntry": true,
+    "css": [
+      "assets/vue-BH1qkaTX.css"
+    ]
+  },
+  "entrypoints/main-legacy.ts": {
+    "file": "assets/main-legacy-DLPUG4oZ.js",
+    "name": "entrypoints/main.ts",
+    "src": "entrypoints/main-legacy.ts",
+    "isEntry": true,
+    "imports": [
+      "entrypoints/app-legacy.css",
+      "entrypoints/frameworks/vue-legacy.js",
+      "../assets/theme-legacy.css"
+    ]
+  },
+  "entrypoints/main.ts": {
+    "file": "assets/main-CuVZXsxU.js",
+    "name": "entrypoints/main.ts",
+    "src": "entrypoints/main.ts",
+    "isEntry": true,
+    "imports": [
+      "entrypoints/frameworks/vue.js"
+    ],
+    "css": [
+      "assets/app-BhUNvwbY.css",
+      "assets/theme-CK6FhHUh.css"
+    ]
+  },
+  "entrypoints/sassy-legacy.scss": {
+    "file": "assets/sassy-legacy-DPacfGOX.js",
+    "name": "entrypoints/sassy.scss",
+    "src": "entrypoints/sassy-legacy.scss",
+    "isEntry": true
+  },
+  "entrypoints/sassy.scss": {
+    "file": "assets/sassy-D5kz_As0.css",
+    "src": "entrypoints/sassy.scss",
+    "isEntry": true
+  },
+  "images/logo.png": {
+    "file": "assets/logo-Bh_XL1Xl.png",
+    "src": "images/logo.png"
+  },
+  "index-legacy.html": {
+    "file": "assets/index-legacy-Cgnsouis.js",
+    "name": "index.html",
+    "src": "index-legacy.html",
+    "isEntry": true,
+    "imports": [
+      "entrypoints/sassy-legacy.scss",
+      "entrypoints/app-legacy.css",
+      "entrypoints/main-legacy.ts",
+      "entrypoints/frameworks/vue-legacy.js",
+      "../assets/theme-legacy.css"
+    ],
+    "assets": [
+      "assets/logo-Bh_XL1Xl.png"
+    ]
+  },
+  "index.html": {
+    "file": "assets/index-BSgK7T1J.js",
+    "name": "index.html",
+    "src": "index.html",
+    "isEntry": true,
+    "imports": [
+      "entrypoints/main.ts",
+      "entrypoints/frameworks/vue.js"
+    ],
+    "css": [
+      "assets/sassy-D5kz_As0.css",
+      "assets/app-BhUNvwbY.css",
+      "assets/theme-CK6FhHUh.css"
+    ],
+    "assets": [
+      "assets/logo-Bh_XL1Xl.png"
+    ]
+  },
+  "logo.png": {
+    "file": "assets/logo-CPmPqqKk.png",
+    "src": "logo.png"
+  },
+  "logo.svg": {
+    "file": "assets/logo-Nuo4H8F_.svg",
+    "src": "logo.svg"
   }
 }

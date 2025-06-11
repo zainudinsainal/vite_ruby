@@ -4,7 +4,7 @@ import createDebugger from 'debug'
 
 import type { Plugin, ResolvedConfig } from 'vite'
 
-import type { OutputBundle, PluginContext } from 'rollup'
+import type { OutputBundle, PluginContext } from 'rolldown'
 import { UnifiedConfig } from './types'
 import { filterEntrypointAssets } from './config'
 
