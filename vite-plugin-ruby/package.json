@@ -1,7 +1,7 @@
 {
   "name": "vite-plugin-ruby",
   "description": "Convention over configuration for using Vite in Ruby apps",
-  "version": "5.1.1",
+  "version": "5.2.0",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -47,17 +47,17 @@
   },
   "dependencies": {
     "debug": "^4.3.4",
-    "fast-glob": "^3.3.2"
+    "tinyglobby": "^0.2.15"
   },
   "peerDependencies": {
-    "vite": ">=6.3.14"
+    "vite": ">=7.1.1"
   },
   "devDependencies": {
     "@types/debug": "^4.1.12",
     "@types/node": "^18.7.14",
-    "rolldown": "1.0.0-beta.15",
+    "rolldown": "1.0.0-beta.35",
     "standard-version": "^9.5.0",
-    "tsdown": "^0.12.7",
+    "tsdown": "^0.14.2",
     "typescript": "^5.0.0",
     "vite": "npm:rolldown-vite@latest",
     "vitest": "^0.34.6"
