@@ -52,7 +52,7 @@ function config (userConfig: UserConfig, env: ConfigEnv): UserConfig {
     assetsDir,
     manifest: !ssrBuild,
     outDir,
-    rollupOptions: {
+    rolldownOptions: {
       ...rollupOptions,
       input: {
         ...rollupInput,
