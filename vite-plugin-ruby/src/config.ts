@@ -1,5 +1,6 @@
 import { join, relative, resolve } from 'path'
-import glob from 'fast-glob'
+import { fileURLToPath, URL } from 'url'
+import { globSync } from 'tinyglobby'
 
 import type { UserConfig, ServerOptions } from 'vite'
 import { APP_ENV, ALL_ENVS_KEY, ENTRYPOINT_TYPES_REGEX } from './constants'
@@ -7,17 +8,17 @@ import { booleanOption, loadJsonConfig, configOptionFromEnv, slash } from './uti
 import { Config, ResolvedConfig, UnifiedConfig, MultiEnvConfig, Entrypoints } from './types'
 
 // Internal: Default configuration that is also read from Ruby.
-export const defaultConfig: ResolvedConfig = loadJsonConfig(resolve(__dirname, '../default.vite.json'))
+export const defaultConfig: ResolvedConfig = loadJsonConfig(fileURLToPath(new URL('../default.vite.json', import.meta.url)))
 
 // Internal: Returns the files defined in the entrypoints directory that should
-// be processed by rollup.
-export function filterEntrypointsForRollup (entrypoints: Entrypoints): Entrypoints {
+// be processed by rolldown.
+export function filterEntrypointsForRolldown (entrypoints: Entrypoints): Entrypoints {
   return entrypoints
     .filter(([_name, filename]) => ENTRYPOINT_TYPES_REGEX.test(filename))
 }
 
 // Internal: Returns the files defined in the entrypoints directory that are not
-// processed by Rollup and should be manually fingerprinted and copied over.
+// processed by Rolldown and should be manually fingerprinted and copied over.
 export function filterEntrypointAssets (entrypoints: Entrypoints): Entrypoints {
   return entrypoints
     .filter(([_name, filename]) => !ENTRYPOINT_TYPES_REGEX.test(filename))
@@ -29,7 +30,7 @@ export function resolveEntrypointFiles (projectRoot: string, sourceCodeDir: stri
     ? [config.ssrEntrypoint]
     : [`~/${config.entrypointsDir}/**/*`, ...config.additionalEntrypoints]
 
-  const entrypointFiles = glob.sync(resolveGlobs(projectRoot, sourceCodeDir, inputGlobs))
+  const entrypointFiles = globSync(resolveGlobs(projectRoot, sourceCodeDir, inputGlobs), { absolute: true })
 
   if (config.ssrBuild) {
     if (entrypointFiles.length === 0)

@@ -1,20 +1,21 @@
-import { resolve } from 'path'
+import { fileURLToPath, URL } from 'url'
 import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
 import ViteRuby from 'vite-plugin-ruby'
-import ViteLegacy from '@vitejs/plugin-legacy'
 
 export default defineConfig({
+  build: {
+    experimental: {
+      enableNativePlugin: true,
+    },
+  },
   resolve: {
     alias: {
-      '@assets/': `${resolve(__dirname, 'app/assets')}/`,
+      '@assets/': fileURLToPath(new URL('./app/assets/', import.meta.url)),
     },
   },
   plugins: [
     Vue(),
     ViteRuby(),
-    ViteLegacy({
-      targets: ['defaults', 'not IE 11'],
-    }),
   ],
 })
