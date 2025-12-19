@@ -1,12 +1,12 @@
 import { copyFileSync } from 'fs'
-import type { Options } from 'tsup'
+import type { Options } from 'tsdown'
 
-export const tsup: Options = {
+export const tsdown: Options = {
   clean: true,
   dts: true,
   shims: true,
   sourcemap: true,
-  target: 'node12',
+  target: 'node18',
   format: ['esm', 'cjs'],
   async onSuccess () {
     copyFileSync('src/dev-server-index.html', 'dist/dev-server-index.html')

@@ -1,10 +1,11 @@
 import { basename, posix, resolve } from 'path'
 import { existsSync, readFileSync } from 'fs'
+import { fileURLToPath, URL } from 'url'
 import type { ConfigEnv, PluginOption, UserConfig, ViteDevServer } from 'vite'
 import createDebugger from 'debug'
 
 import { cleanConfig, configOptionFromEnv } from './utils'
-import { filterEntrypointsForRollup, loadConfiguration, resolveGlobs } from './config'
+import { filterEntrypointsForRolldown, loadConfiguration, resolveGlobs } from './config'
 import { assetsManifestPlugin } from './manifest'
 
 export * from './types'
@@ -51,11 +52,11 @@ function config (userConfig: UserConfig, env: ConfigEnv): UserConfig {
     assetsDir,
     manifest: !ssrBuild,
     outDir,
-    rollupOptions: {
+    rolldownOptions: {
       ...rollupOptions,
       input: {
         ...rollupInput,
-        ...Object.fromEntries(filterEntrypointsForRollup(entrypoints)),
+        ...Object.fromEntries(filterEntrypointsForRolldown(entrypoints)),
       },
       output: {
         ...outputOptions(assetsDir, ssrBuild),
@@ -90,7 +91,7 @@ function configureServer (server: ViteDevServer) {
   return () => server.middlewares.use((req, res, next) => {
     if (req.url === '/index.html' && !existsSync(resolve(server.config.root, 'index.html'))) {
       res.statusCode = 404
-      const file = readFileSync(resolve(__dirname, 'dev-server-index.html'), 'utf-8')
+      const file = readFileSync(fileURLToPath(new URL('dev-server-index.html', import.meta.url)), 'utf-8')
       res.end(file)
     }
 
@@ -101,6 +102,9 @@ function configureServer (server: ViteDevServer) {
 function outputOptions (assetsDir: string, ssrBuild: boolean) {
   // Internal: Avoid nesting entrypoints unnecessarily.
   const outputFileName = (ext: string) => ({ name }: { name: string }) => {
+    if (!name)
+      return posix.join(assetsDir, `[name]-[hash].${ext}`)
+
     const shortName = basename(name).split('.')[0]
     return posix.join(assetsDir, `${shortName}-[hash].${ext}`)
   }
