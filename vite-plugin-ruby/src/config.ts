@@ -30,7 +30,7 @@ export function resolveEntrypointFiles (projectRoot: string, sourceCodeDir: stri
     ? [config.ssrEntrypoint]
     : [`~/${config.entrypointsDir}/**/*`, ...config.additionalEntrypoints]
 
-  const entrypointFiles = globSync(resolveGlobs(projectRoot, sourceCodeDir, inputGlobs), { absolute: true })
+  const entrypointFiles = globSync(resolveGlobs(projectRoot, sourceCodeDir, inputGlobs), { absolute: true, expandDirectories: false })
 
   if (config.ssrBuild) {
     if (entrypointFiles.length === 0)
