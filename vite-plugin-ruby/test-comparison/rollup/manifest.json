@@ -1,0 +1,75 @@
+{
+  "../assets/external.js": {
+    "file": "assets/external-BUA3rgrF.js",
+    "name": "app/assets/external.js",
+    "src": "../assets/external.js",
+    "isEntry": true
+  },
+  "../assets/theme.css": {
+    "file": "assets/theme-CK6FhHUh.css",
+    "src": "../assets/theme.css",
+    "isEntry": true
+  },
+  "entrypoints/app.css": {
+    "file": "assets/app-BhUNvwbY.css",
+    "src": "entrypoints/app.css",
+    "isEntry": true
+  },
+  "entrypoints/frameworks/vue.js": {
+    "file": "assets/vue-Be-vPm2Q.js",
+    "name": "entrypoints/frameworks/vue.js",
+    "src": "entrypoints/frameworks/vue.js",
+    "isEntry": true,
+    "css": [
+      "assets/vue-BH1qkaTX.css"
+    ]
+  },
+  "entrypoints/main.ts": {
+    "file": "assets/main-CkPwY56T.js",
+    "name": "entrypoints/main.ts",
+    "src": "entrypoints/main.ts",
+    "isEntry": true,
+    "imports": [
+      "entrypoints/frameworks/vue.js"
+    ],
+    "css": [
+      "assets/app-BhUNvwbY.css",
+      "assets/theme-CK6FhHUh.css"
+    ]
+  },
+  "entrypoints/sassy.scss": {
+    "file": "assets/sassy-D5kz_As0.css",
+    "src": "entrypoints/sassy.scss",
+    "isEntry": true
+  },
+  "images/logo.png": {
+    "file": "assets/logo-Bh_XL1Xl.png",
+    "src": "images/logo.png"
+  },
+  "index.html": {
+    "file": "assets/index-DI-HrcXP.js",
+    "name": "index.html",
+    "src": "index.html",
+    "isEntry": true,
+    "imports": [
+      "entrypoints/main.ts",
+      "entrypoints/frameworks/vue.js"
+    ],
+    "css": [
+      "assets/sassy-D5kz_As0.css",
+      "assets/app-BhUNvwbY.css",
+      "assets/theme-CK6FhHUh.css"
+    ],
+    "assets": [
+      "assets/logo-Bh_XL1Xl.png"
+    ]
+  },
+  "logo.png": {
+    "file": "assets/logo-CPmPqqKk.png",
+    "src": "logo.png"
+  },
+  "logo.svg": {
+    "file": "assets/logo-Nuo4H8F_.svg",
+    "src": "logo.svg"
+  }
+}
