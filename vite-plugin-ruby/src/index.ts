@@ -1,5 +1,6 @@
 import { basename, posix, resolve } from 'path'
 import { existsSync, readFileSync } from 'fs'
+import { fileURLToPath, URL } from 'url'
 import type { ConfigEnv, PluginOption, UserConfig, ViteDevServer } from 'vite'
 import createDebugger from 'debug'
 
@@ -29,9 +30,16 @@ export default function ViteRubyPlugin (): PluginOption[] {
 
 const debug = createDebugger('vite-plugin-ruby:config')
 
+// Internal: Plugin context interface for Rolldown detection
+interface PluginContext {
+  meta?: {
+    rolldownVersion?: string
+  }
+}
+
 // Internal: Resolves the configuration from environment variables and a JSON
 // config file, and configures the entrypoints and manifest generation.
-function config (userConfig: UserConfig, env: ConfigEnv): UserConfig {
+function config (this: PluginContext | void, userConfig: UserConfig, env: ConfigEnv): UserConfig {
   const config = loadConfiguration(env.mode, projectRoot, userConfig)
   const { assetsDir, base, outDir, server, root, entrypoints, ssrBuild } = config
 
@@ -44,6 +52,16 @@ function config (userConfig: UserConfig, env: ConfigEnv): UserConfig {
   if (typeof rollupInput === 'string')
     rollupInput = { [rollupInput]: rollupInput }
 
+  // Detect if we're using Rolldown (Vite 8+) or Rollup (Vite 7 and below)
+  const isUsingRolldown = !!(this && this.meta && this.meta.rolldownVersion)
+  const optionsKey: 'rolldownOptions' | 'rollupOptions' = isUsingRolldown ? 'rolldownOptions' : 'rollupOptions'
+
+  const rolldownVersion: string | undefined = isUsingRolldown && this?.meta?.rolldownVersion ? this.meta.rolldownVersion : undefined
+  if (isUsingRolldown)
+    debug('Using Rolldown bundler (version: %s)', rolldownVersion)
+  else
+    debug('Using Rollup bundler')
+
   const build = {
     emptyOutDir: userConfig.build?.emptyOutDir ?? (ssrBuild || isLocal),
     sourcemap: !isLocal,
@@ -51,7 +69,7 @@ function config (userConfig: UserConfig, env: ConfigEnv): UserConfig {
     assetsDir,
     manifest: !ssrBuild,
     outDir,
-    rollupOptions: {
+    [optionsKey]: {
       ...rollupOptions,
       input: {
         ...rollupInput,
@@ -90,7 +108,7 @@ function configureServer (server: ViteDevServer) {
   return () => server.middlewares.use((req, res, next) => {
     if (req.url === '/index.html' && !existsSync(resolve(server.config.root, 'index.html'))) {
       res.statusCode = 404
-      const file = readFileSync(resolve(__dirname, 'dev-server-index.html'), 'utf-8')
+      const file = readFileSync(fileURLToPath(new URL('dev-server-index.html', import.meta.url)), 'utf-8')
       res.end(file)
     }
 
@@ -101,6 +119,7 @@ function configureServer (server: ViteDevServer) {
 function outputOptions (assetsDir: string, ssrBuild: boolean) {
   // Internal: Avoid nesting entrypoints unnecessarily.
   const outputFileName = (ext: string) => ({ name }: { name: string }) => {
+    if (typeof name === 'undefined') return ''
     const shortName = basename(name).split('.')[0]
     return posix.join(assetsDir, `${shortName}-[hash].${ext}`)
   }
