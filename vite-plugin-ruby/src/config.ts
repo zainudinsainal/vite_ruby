@@ -1,5 +1,6 @@
 import { join, relative, resolve } from 'path'
-import glob from 'fast-glob'
+import { fileURLToPath, URL } from 'url'
+import { globSync } from 'tinyglobby'
 
 import type { UserConfig, ServerOptions } from 'vite'
 import { APP_ENV, ALL_ENVS_KEY, ENTRYPOINT_TYPES_REGEX } from './constants'
@@ -7,7 +8,7 @@ import { booleanOption, loadJsonConfig, configOptionFromEnv, slash } from './uti
 import { Config, ResolvedConfig, UnifiedConfig, MultiEnvConfig, Entrypoints } from './types'
 
 // Internal: Default configuration that is also read from Ruby.
-export const defaultConfig: ResolvedConfig = loadJsonConfig(resolve(__dirname, '../default.vite.json'))
+export const defaultConfig: ResolvedConfig = loadJsonConfig(fileURLToPath(new URL('../default.vite.json', import.meta.url)))
 
 // Internal: Returns the files defined in the entrypoints directory that should
 // be processed by rollup.
@@ -29,7 +30,7 @@ export function resolveEntrypointFiles (projectRoot: string, sourceCodeDir: stri
     ? [config.ssrEntrypoint]
     : [`~/${config.entrypointsDir}/**/*`, ...config.additionalEntrypoints]
 
-  const entrypointFiles = glob.sync(resolveGlobs(projectRoot, sourceCodeDir, inputGlobs))
+  const entrypointFiles = globSync(resolveGlobs(projectRoot, sourceCodeDir, inputGlobs), { expandDirectories: false, absolute: true })
 
   if (config.ssrBuild) {
     if (entrypointFiles.length === 0)
@@ -83,7 +84,8 @@ export function loadConfiguration (viteMode: string, projectRoot: string, userCo
 function coerceConfigurationValues (config: ResolvedConfig, projectRoot: string, userConfig: UserConfig): UnifiedConfig {
   // Coerce the values to the expected types.
   const port = config.port = parseInt(config.port as unknown as string)
-  const https = config.https = userConfig.server?.https || booleanOption(config.https)
+  const httpsOption = userConfig.server?.https || booleanOption(config.https)
+  const https = config.https = (httpsOption === false || httpsOption === true) ? undefined : httpsOption
 
   const fs: ServerOptions['fs'] = { allow: [projectRoot], strict: userConfig.server?.fs?.strict ?? true }
 

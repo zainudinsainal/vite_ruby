@@ -9,10 +9,18 @@
     "moduleResolution": "Node",
     "resolveJsonModule": true,
     "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@plugin/*": ["src/*"]
+    }
   },
+  "include": [
+    "src/**/*",
+    "tests/**/*"
+  ],
   "exclude": [
     "**/dist",
     "**/node_modules",
-    "**/test"
+    "**/example"
   ]
 }
