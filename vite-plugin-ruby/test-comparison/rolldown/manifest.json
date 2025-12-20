@@ -1,0 +1,102 @@
+{
+  "../assets/external.js": {
+    "file": "assets/external-BhRq1rkB.js",
+    "name": "app/assets/external.js",
+    "src": "../assets/external.js",
+    "isEntry": true
+  },
+  "../assets/theme.css": {
+    "file": "assets/theme-Dk8Vp-QR.js",
+    "name": "app/assets/theme.css",
+    "src": "../assets/theme.css",
+    "isEntry": true,
+    "css": [
+      "assets/theme-C09nxUps.css"
+    ]
+  },
+  "_logo-CPmPqqKk.png": {
+    "file": "assets/logo-CPmPqqKk.png",
+    "src": "_logo-CPmPqqKk.png"
+  },
+  "_logo-Nuo4H8F_.svg": {
+    "file": "assets/logo-Nuo4H8F_.svg",
+    "src": "_logo-Nuo4H8F_.svg"
+  },
+  "_theme-C09nxUps.css": {
+    "file": "assets/theme-C09nxUps.css",
+    "src": "_theme-C09nxUps.css"
+  },
+  "_vue-B0iO_-X8.css": {
+    "file": "assets/vue-B0iO_-X8.css",
+    "src": "_vue-B0iO_-X8.css"
+  },
+  "_vue-GthBg4CN.js": {
+    "file": "assets/vue-GthBg4CN.js",
+    "name": "vue",
+    "css": [
+      "assets/vue-B0iO_-X8.css"
+    ]
+  },
+  "entrypoints/app.css": {
+    "file": "assets/app-OK6MABcH.css",
+    "name": "entrypoints/app.css",
+    "names": [
+      "entrypoints/app.css"
+    ],
+    "src": "entrypoints/app.css",
+    "isEntry": true
+  },
+  "entrypoints/frameworks/vue.js": {
+    "file": "assets/vue-BK_nx3tb.js",
+    "name": "entrypoints/frameworks/vue.js",
+    "src": "entrypoints/frameworks/vue.js",
+    "isEntry": true,
+    "imports": [
+      "_vue-GthBg4CN.js"
+    ]
+  },
+  "entrypoints/main.ts": {
+    "file": "assets/main-BQ2G9ejo.js",
+    "name": "entrypoints/main.ts",
+    "src": "entrypoints/main.ts",
+    "isEntry": true,
+    "imports": [
+      "_vue-GthBg4CN.js"
+    ],
+    "css": [
+      "assets/theme-C09nxUps.css",
+      "assets/app-OK6MABcH.css"
+    ]
+  },
+  "entrypoints/sassy.scss": {
+    "file": "assets/sassy-D5kz_As0.css",
+    "name": "entrypoints/sassy.scss",
+    "names": [
+      "entrypoints/sassy.css"
+    ],
+    "src": "entrypoints/sassy.scss",
+    "isEntry": true
+  },
+  "images/logo.png": {
+    "file": "assets/logo-Bh_XL1Xl.png",
+    "src": "images/logo.png"
+  },
+  "index.html": {
+    "file": "assets/index-B-Kp0XQM.js",
+    "name": "index.html",
+    "src": "index.html",
+    "isEntry": true,
+    "imports": [
+      "_vue-GthBg4CN.js",
+      "entrypoints/main.ts"
+    ],
+    "css": [
+      "assets/theme-C09nxUps.css",
+      "assets/app-OK6MABcH.css",
+      "assets/sassy-D5kz_As0.css"
+    ],
+    "assets": [
+      "assets/logo-Bh_XL1Xl.png"
+    ]
+  }
+}
