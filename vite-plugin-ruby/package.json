@@ -3,13 +3,19 @@
   "description": "Convention over configuration for using Vite in Ruby apps",
   "version": "5.1.1",
   "type": "module",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
     },
     "./default.vite.json": "./default.vite.json"
   },
@@ -42,7 +48,7 @@
     "dev": "pnpm run build -- --watch",
     "example:dev": "pnpm -C example run dev",
     "example:build": "pnpm -C example run build",
-    "build": "tsup src/index.ts",
+    "build": "tsdown src/index.ts",
     "prepublishOnly": "pnpm run build",
     "test": "vitest",
     "postpublish": "PACKAGE_VERSION=$(cat package.json | grep \\\"version\\\" | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git tag vite-plugin-ruby@$PACKAGE_VERSION && git push --tags"
@@ -59,7 +65,7 @@
     "@types/node": "^22.12.0",
     "rolldown": "1.0.0-beta.55",
     "standard-version": "^9.5.0",
-    "tsup": "^8.5.1",
+    "tsdown": "^0.18.1",
     "typescript": "^5.8.3",
     "vite": "8.0.0-beta.2",
     "vitest": "^4.0.16"
